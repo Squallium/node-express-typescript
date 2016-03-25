@@ -1,0 +1,32 @@
+{
+  "name": "web-application-core",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Squallium/web-application-core",
+  "authors": [
+    "Squallium <squallium3@gmail.com>"
+  ],
+  "description": "Base web application for my projects, based on admin-lte, with node, express and jade",
+  "keywords": [
+    "node",
+    "express",
+    "jade",
+    "bootstrap",
+    "admin-lte"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Ionicons": "ionicons#~2.0.1",
+    "bootstrap": "~3.3.5",
+    "fastclick": "~1.0.6",
+    "font-awesome": "~4.4.0",
+    "iCheck": "icheck#~1.0.2",
+    "slimScroll": "slimscroll#~1.3.6"
+  }
+}
