@@ -1,5 +1,245 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+    body.hold-transition.skin-blue.sidebar-mini
+        .wrapper
+            header.main-header
+                // Logo
+                a(href="/").logo
+                    // mini logo for sidebar mini 50x50 pixels
+                    span.logo-mini
+                        b WA-Core
+                    // logo for regular state and mobile devices
+                    span.logo-lg
+                        b Web App Core
+                // Header Navbar: style can be found in header.less
+                nav(role="navigation").navbar.navbar-static-top
+                    // Sidebar toggle button
+                    a(href="#", data-toggle="offcanvas", role="button").sidebar-toggle
+                        span.sr-only Toggle navigation
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                    .navbar-custom-menu
+                        ul.nav.navbar-nav
+                            li.dropdown.messages-menu
+                                a(href="#", data-toggle="dropdown").dropdown-toggle
+                                    i.fa.fa-envelope-o
+                                    span.label.label-success 4
+                                ul.dropdown-menu
+                                    li.header You have 4 messages
+                                    li
+                                        // inner menu: contains the actual data
+                                        ul.menu
+                                            li // start message
+                                                a(href="#")
+                                                    .pull-left
+                                                        img(src="admin-lte/img/user2-160x160.jpg", alt="User Image").img-circle
+                                                    h4 Support Team
+                                                        small
+                                                            i.fa.fa-clock-o
+                                                            span 5 mins
+                                                    p Why not buy a new awesome theme?
+                                    li.footer
+                                        a(href="#") See All Messages
+                            // Notifications: style can be found in dropdown.less
+                            li.dropdown.notifications-menu
+                                a(href="#", data-toggle="dropdown").dropdown-toggle
+                                    i.fa.fa-bell-o
+                                    span.label.label-warning 10
+                                ul.dropdown-menu
+                                    li.header You have 10 notifications
+                                    li
+                                        // inner menu: contains the actual data
+                                        ul.menu
+                                            li
+                                                a(href="#")
+                                                    i.fa.fa-users.text-aqua
+                                                    span 5 new members joined today
+                                    li.box-footer
+                                        a(href="#") View all
+                            // Tanks: style can be found in dropdown.less
+                            li.dropdown.tasks-menu
+                                a(href="#", data-toggle="dropdown").dropdown-toggle
+                                    i.fa.fa-flag-o
+                                    span.label.label-danger 9
+                                ul.dropdown-menu
+                                    li.header You have 9 tasks
+                                    li
+                                        ul.menu
+                                            li // Task item
+                                                a(href="#")
+                                                    h3 Design some buttons
+                                                        small.pull-right 20%
+                                                    .progress.xs
+                                                        div(style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100").progress-bar.progress-bar-aqua
+                                                            span.sr-only 20% Complete
+                                            // End task item
+                                    li.footer
+                                        a(href="#") View all tasks
+                            // user account: style can be found in dropdown.less
+                            li.dropdown.user.user-menu
+                                a(href="#", data-toggle="dropdown").dropdown-toggle
+                                    img(src="admin-lte/img/user2-160x160.jpg", alt="User Image").user-image
+                                    span.hidden-xs Alexander Pierce
+                                ul.dropdown-menu
+                                    // User image
+                                    li.user-header
+                                        img(src="admin-lte/img/user2-160x160.jpg", alt="User Image").img-circle
+                                        p Alexander Pierce - Web Developer
+                                            small Member since Nov. 2012
+                                    // Menu body
+                                    li.user-body
+                                        .row
+                                            .col-xs-4.text-center
+                                                a(href="#") Followers
+                                            .col-xs-4.text-center
+                                                a(href="#") Sales
+                                            .col-xs-4.text-center
+                                                a(href="#") Friends
+                                        // fin de linea
+                                    // Menu footer
+                                    li.user-footer
+                                        .pull-left
+                                            a(href="#").btn.btn-default.btn-flat Profile
+                                        .pull-right
+                                            a(href="#").btn.btn-default.btn-flat
+                            // Control sidebar toggle
+                            li
+                                a(href="#", data-toggle="control-sidebar")
+                                    i.fa.fa-gears
+
+            // left side column
+            aside.main-sidebar
+                // sidebar: style can be found in sidebar.less
+                section.sidebar
+                    // sidebar user panel
+                    .user-panel
+                        .pull-left.image
+                            img(src="admin-lte/img/user2-160x160.jpg", alt="User Image").img-circle
+                        .pull-lef.info
+                            p Alexandre Pierce
+                            a(href="#")
+                                i.fa.fa-circle.text-success Online
+                    // search form
+                    form(action="#",method="get").sidebar-form
+                        .input-group
+                            input(type="text", name="q", placeholder="Search...").form-control
+                            span.input-group-btn
+                                button(type="submit", name="search", id="search-btn").btn.btn-flat
+                                    i.fa.fa-search
+                    // end search form
+                    // sidebar menu: style can be found in sidebar.less
+                    ul.sidebar-menu
+                        li.header MAIN NAVIGATION
+                        li.treeview
+                            a(href="#")
+                                i.fa.fa-dashboard
+                                span Dashboard
+                                i.fa.fa-angle-left.pull-right
+                            ul.treeview-menu
+                                li
+                                    a(href="#")
+                                        i.fa.fa-circle-o
+                                        span Dashboard v1
+                                li
+                                    a(href="#")
+                                        i.fa.fa-circle-o
+                                        span Dashboard v2
+                        li.treeview
+                            a(href="#")
+                                i.fa.fa-files-o
+                                span Layout Options
+                                span.label.label-primary.pull-right 4
+                            ul.treeview-menu
+                                li
+                                    a(href="#")
+                                        i.fa.fa-circle-o
+                                        span Top Navigation
+                                li
+                                    a(href="#")
+                                        i.fa.fa-circle-o
+                                        span Boxed
+                                li
+                                    a(href="#")
+                                        i.fa.fa-circle-o
+                                        span Fixed
+                                li
+                                    a(href="#")
+                                        i.fa.fa-circle-o
+                                        span Collapsed Sidebar
+                        li
+                            a(href="#")
+                                i.fa.fa-th
+                                span Widgets
+                                small.label.pull-right.bg-green Hot
+                        li.treeview
+                            a(href="#")
+                                i.fa.fa-pie-chart
+                                span Charts
+                                i.fa.fa-angle-left.pull-right
+                            ul.treeview-menu
+                                li
+                                    a(href="#")
+                                        i.fa.fa-circle-o
+                                        span ChartJS
+                        li.treeview
+                            a(href="#")
+                                i.fa.fa-share
+                                span Multilevel
+                                i.fa.fa-angle-left.pull-right
+                            ul.treeview-menu
+                                li
+                                    a(href="#")
+                                        i.fa.fa-circle-o
+                                        span Level One
+                                li
+                                    a(href="#")
+                                        i.fa.fa-circle-o
+                                        span Level One
+                                        i.fa.fa-angle-left.pull-right
+                                    ul.treeview-menu
+                                        li
+                                            a(href="#")
+                                                i.fa.fa-circle-o
+                                                span Level Two
+                                                i.fa.fa-angle-left.pull-right
+            // Content wrapper
+            .content-wrapper
+                // content header
+                section.content-header
+                    h1 Blank page
+                        small it all starts here
+                    ol.breadcrumb
+                        li
+                            a(href="#")
+                                i.fa.fa-dashboard
+                                span Home
+                        li
+                            a(href="#") Examples
+                        li.active Blank page
+                // main content
+                section.content
+                    // default box
+                    .box
+                        .box-header.with-border
+                            h3.box-title Title
+                            .box-tools.pull-right
+                                button(type="button", data-widget="collapse", data-toggle="tooltip", title="Collapse").btn.btn-box-tool
+                                    i.fa.fa-minus
+                                button(type="button", data-widget="remove", data-toggle="tooltip", title="Remove").btn.btn-box-tool
+                                    i.fa.fa-times
+                        .box-body Start creating your amazing application!
+                        .box-footer Footer
+            // footer
+            footer.main-footer
+                .pull-right.hidden-xs
+                    b Version
+                    span 2.3.0
+                strong Copytright
+
+            // Control sidebar
+
+
+
+

@@ -1,0 +1,32 @@
+extends ../layout
+
+block content
+    body.hold-transition.login-page
+        .login-box
+            .login-logo
+                a(href="/")
+                    b Web App Core
+            .login-box-body
+                p.login-box-msg Sign in o start your session
+                form(action="/login", method="post")
+                    include ./include/email-pass
+                    .row
+                        .col-xs-8
+                            .checkbox.icheck
+                                label
+                                    input(type="checkbox")
+                                    span &#32;Remember Me
+                        .col-xs-4
+                            button(type="submit").btn.btn-primary.btn-block.btn-flat Sign In
+                .social-auth-links.text-center
+                    p - OR -
+                    a(href="#").btn.btn-block.btn-social.btn-facebook.btn-flat
+                        i.fa.fa-facebook
+                        span Sign in using Facebook
+                    a(href="#").btn.btn-block.btn-social.btn-google.btn-flat
+                        i.fa.fa-google-plus
+                        span Sign in using Google+
+                a(href="#") I forgot my password
+                br
+                a(href="#") Resgister a new membership
+        include ./include/script-agree

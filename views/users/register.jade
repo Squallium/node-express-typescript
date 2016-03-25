@@ -1,0 +1,42 @@
+extends ../layout
+
+block content
+    body.hold-transition.register-page
+        .register-box
+            .register-logo
+                a(href="/")
+                    b Web App Core
+
+            .register-box-body
+                p.login-box-msg Register a new membership
+                form(action="signup", method="post")
+                    .form-group.has-feedback
+                        input(type="text", placeholder="Full name").form-control
+                        span.glyphicon.glyphicon-user.form-control-feedback
+                    include ./include/email-pass
+                    .form-group.has-feedback
+                        input(type="password", placeholder="Retype password").form-control
+                        span.glyphicon.glyphicon-log-in.form-control-feedback
+                    .row
+                        .col-xs-8
+                            .checkbox.icheck
+                                label
+                                    input(type="checkbox")
+                                    span &#32;I agree to the
+                                    a(href="#") &#32;terms
+                        .col-xs-4
+                            button(type="submit").btn.btn-primary.btn-block.btn-flat Register
+
+                .social-auth-links.text-center
+                    p - OR -
+                    a(href="#").btn.btn-block.btn-social.btn-facebook.btn-flat
+                        i.fa.fa-facebook
+                        span Sign up using Facebook
+                    a(href="#").btn.btn-block.btn-social.btn-google.btn-flat
+                        i.fa.fa-google-plus
+                        span Sign up using Google+
+
+                a(href="/users/login").text-center I already have a membership
+
+
+        include ./include/script-agree
