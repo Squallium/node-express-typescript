@@ -1,16 +1,30 @@
 /**
  * Created by borja on 22/3/16.
  */
-"use strict";
 /// <reference path='./typings/main.d.ts' />
+// default imports
 var express = require('express');
 var path = require('path');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
+// custom imports
+var passport = require('passport');
+var session = require('express-session');
+var flash = require('connect-flash');
+// routes
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var app = express();
+// passport setup
+app.use(session({
+    secret: 'ytunolossabes',
+    saveUninitialized: true,
+    resave: true
+}));
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // use connect-flash for flash messages stored in session
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -54,4 +68,3 @@ app.use(function (err, req, res, next) {
     });
 });
 exports.App = app;
-//# sourceMappingURL=app.js.map
