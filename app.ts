@@ -16,12 +16,23 @@ import favicon = require('serve-favicon');
 import passport = require('passport');
 import session = require('express-session');
 import flash = require('connect-flash');
+import mongoose = require('mongoose');
+import config = require('./config/config')
 
 // routes
 import routes = require('./routes/index');
 import users = require('./routes/users');
 
 let app = express();
+
+// database setup //
+// the url correspond to the environment we are in
+app.set('dbUrl', config.db[app.settings.env]);
+// we're going to use mongoose to interact with the mongodb
+mongoose.connect(app.get('dbUrl'));
+
+// passport strategies setup
+require('./config/passport').setupStrategies(passport);
 
 // passport setup
 app.use(session({

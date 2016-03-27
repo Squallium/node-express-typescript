@@ -1,6 +1,7 @@
 /**
  * Created by borja on 22/3/16.
  */
+"use strict";
 /// <reference path='./typings/main.d.ts' />
 // default imports
 var express = require('express');
@@ -12,10 +13,19 @@ var cookieParser = require('cookie-parser');
 var passport = require('passport');
 var session = require('express-session');
 var flash = require('connect-flash');
+var mongoose = require('mongoose');
+var config = require('./config/config');
 // routes
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var app = express();
+// database setup //
+// the url correspond to the environment we are in
+app.set('dbUrl', config.db[app.settings.env]);
+// we're going to use mongoose to interact with the mongodb
+mongoose.connect(app.get('dbUrl'));
+// passport strategies setup
+require('./config/passport').setupStrategies(passport);
 // passport setup
 app.use(session({
     secret: 'ytunolossabes',
@@ -68,3 +78,4 @@ app.use(function (err, req, res, next) {
     });
 });
 exports.App = app;
+//# sourceMappingURL=app.js.map
