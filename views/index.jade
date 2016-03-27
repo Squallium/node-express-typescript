@@ -34,7 +34,7 @@ block content
                                             li // start message
                                                 a(href="#")
                                                     .pull-left
-                                                        img(src="admin-lte/img/user2-160x160.jpg", alt="User Image").img-circle
+                                                        img(src="/admin-lte/img/user2-160x160.jpg", alt="User Image").img-circle
                                                     h4 Support Team
                                                         small
                                                             i.fa.fa-clock-o
@@ -80,12 +80,12 @@ block content
                             // user account: style can be found in dropdown.less
                             li.dropdown.user.user-menu
                                 a(href="#", data-toggle="dropdown").dropdown-toggle
-                                    img(src="admin-lte/img/user2-160x160.jpg", alt="User Image").user-image
+                                    img(src="/admin-lte/img/user2-160x160.jpg", alt="User Image").user-image
                                     span.hidden-xs Alexander Pierce
                                 ul.dropdown-menu
                                     // User image
                                     li.user-header
-                                        img(src="admin-lte/img/user2-160x160.jpg", alt="User Image").img-circle
+                                        img(src="/admin-lte/img/user2-160x160.jpg", alt="User Image").img-circle
                                         p Alexander Pierce - Web Developer
                                             small Member since Nov. 2012
                                     // Menu body
@@ -116,7 +116,7 @@ block content
                     // sidebar user panel
                     .user-panel
                         .pull-left.image
-                            img(src="admin-lte/img/user2-160x160.jpg", alt="User Image").img-circle
+                            img(src="/admin-lte/img/user2-160x160.jpg", alt="User Image").img-circle
                         .pull-lef.info
                             p Alexandre Pierce
                             a(href="#")
@@ -229,7 +229,9 @@ block content
                                     i.fa.fa-minus
                                 button(type="button", data-widget="remove", data-toggle="tooltip", title="Remove").btn.btn-box-tool
                                     i.fa.fa-times
-                        .box-body Start creating your amazing application!
+                        .box-body
+                            block content-body
+                            Start creating your amazing application!
                         .box-footer Footer
             // footer
             footer.main-footer
