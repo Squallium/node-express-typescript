@@ -7,8 +7,8 @@
 var config = {
     db: {
         production: process.env.MONGOLAB_URI,
-        development: "mongodb://localhost/expense-tracker-dev",
-        test: "mongodb://localhost/expense-tracker-test",
+        development: "mongodb://localhost/node-express-typescript-dev",
+        test: "mongodb://localhost/node-express-typescript-test",
     }
 };
 
