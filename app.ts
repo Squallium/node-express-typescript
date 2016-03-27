@@ -4,6 +4,7 @@
 
 /// <reference path='./typings/main.d.ts' />
 
+// default imports
 import express = require('express');
 import path = require('path');
 import logger = require('morgan');
@@ -11,10 +12,37 @@ import bodyParser = require('body-parser');
 import cookieParser = require('cookie-parser');
 import favicon = require('serve-favicon');
 
+// custom imports
+import passport = require('passport');
+import session = require('express-session');
+import flash = require('connect-flash');
+import mongoose = require('mongoose');
+import config = require('./config/config')
+
+// routes
 import routes = require('./routes/index');
 import users = require('./routes/users');
 
-var app = express();
+let app = express();
+
+// database setup //
+// the url correspond to the environment we are in
+app.set('dbUrl', config.db[app.settings.env]);
+// we're going to use mongoose to interact with the mongodb
+mongoose.connect(app.get('dbUrl'));
+
+// passport strategies setup
+require('./config/passport').setupStrategies(passport);
+
+// passport setup
+app.use(session({
+    secret: 'ytunolossabes',
+    saveUninitialized: true,
+    resave: true
+}));
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // use connect-flash for flash messages stored in session
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -37,7 +65,7 @@ app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
-    var err = new Error('Not Found');
+    let err = new Error('Not Found');
     err['status'] = 404;
     next(err);
 });
@@ -66,4 +94,4 @@ app.use((err: any, req, res, next) => {
     });
 });
 
-export var App = app;
+export let App = app;
