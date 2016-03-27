@@ -48,6 +48,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
 app.use('/admin-lte', express.static(__dirname + '/node_modules/admin-lte/dist'));
+// routes setup
 app.use('/', routes);
 app.use('/users', users);
 // catch 404 and forward to error handler
