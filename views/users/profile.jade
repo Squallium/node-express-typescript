@@ -1,16 +1,18 @@
 //
    Created by borja on 12/03/16.
+extends ../layout
 
-if(user.local.email)
-    h1
-        span.fa.fa-anchor Profile Page
-    p
-        strong id: &#32;
-        !{user._id}
-        br
-        strong email: &#32;
-        !{user.local.email}
-        br
-        strong password: &#32;
-        !{user.local.password}
-    a(href="logout").btn.btn-default.btn-sm Logout
+block content
+    if(user.local.email)
+        h1
+            span.fa.fa-anchor Profile Page
+        p
+            strong id: &#32;
+            !{user._id}
+            br
+            strong email: &#32;
+            !{user.local.email}
+            br
+            strong password: &#32;
+            !{user.local.password}
+        a(href="logout").btn.btn-default.btn-sm Logout
