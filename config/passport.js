@@ -4,9 +4,9 @@
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/user');
 function setupStrategies(passport) {
-    // =========================================================================
-    // passport session setup ==================================================
-    // =========================================================================
+    // ====================== //
+    // passport session setup //
+    // ====================== //
     // required for persistent login sessions
     // passport needs ability to serialize and unserialize users out of session
     // used to serialize the user for the session

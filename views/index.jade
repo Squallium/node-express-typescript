@@ -208,8 +208,12 @@ block content
             .content-wrapper
                 // content header
                 section.content-header
-                    h1 Blank page
-                        small it all starts here
+                    if (contentHeader)
+                        h1 #{contentHeader.title}
+                            small #{contentHeader.subtitle}
+                    else
+                        h1 Blank Page
+                            small it all starts here
                     ol.breadcrumb
                         li
                             a(href="#")
@@ -217,7 +221,7 @@ block content
                                 span Home
                         li
                             a(href="#") Examples
-                        li.active Blank page
+                        li.active !Blank page
                 // main content
                 section.content
                     // default box

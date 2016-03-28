@@ -1,7 +1,6 @@
 /**
  * Created by borja on 24/03/16.
  */
-"use strict";
 /// <reference path='../typings/main.d.ts' />
 var express = require('express');
 var passport = require('passport');
@@ -40,6 +39,10 @@ router.post('/login', passport.authenticate('local-login', {
 /* PROFILE SECTION */
 router.get('/profile', isLoggedIn, function (req, res, next) {
     res.render('users/profile', {
+        contentHeader: {
+            title: 'User Profile',
+            subtitle: 'Detail information'
+        },
         user: req.user // get the user from session and pass to template
     });
 });
@@ -58,4 +61,3 @@ function isLoggedIn(req, res, next) {
     res.redirect('/');
 }
 module.exports = router;
-//# sourceMappingURL=users.js.map

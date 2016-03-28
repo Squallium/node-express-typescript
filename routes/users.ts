@@ -50,6 +50,10 @@ router.post('/login', passport.authenticate('local-login',{
 /* PROFILE SECTION */
 router.get('/profile', isLoggedIn, function (req, res, next) {
     res.render('users/profile', {
+        contentHeader: {
+            title: 'User Profile',
+            subtitle: 'Detail information'
+        },
         user: req.user // get the user from session and pass to template
     });
 });
