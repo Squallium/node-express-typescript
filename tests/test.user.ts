@@ -12,10 +12,12 @@ let db;
 describe('User', function () {
 
     before(function (done) {
-       db = mongoose.connect(config.db['test']);
+        db = mongoose.connect(config.db['test']);
+        done();
     });
 
     after(function (done) {
-
+        mongoose.connection.close();
+        done();
     });
 });

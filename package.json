@@ -26,6 +26,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^2.4.5",
+    "supertest": "^1.2.0",
     "typescript": "^1.8.9",
     "typings": "^0.7.9"
   }
