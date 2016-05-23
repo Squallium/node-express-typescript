@@ -17,7 +17,7 @@ import passport = require('passport');
 import session = require('express-session');
 import flash = require('connect-flash');
 import mongoose = require('mongoose');
-import config = require('./config/config')
+import config = require('./config/config');
 
 // routes
 import routes = require('./routes/index');

@@ -1,7 +1,6 @@
 /**
  * Created by borja on 27/03/16.
  */
-"use strict";
 /// <reference path='../typings/main.d.ts' />
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');

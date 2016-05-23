@@ -1,6 +1,10 @@
 # Own ignores
 config/auth.js
 
+# Testing purpose
+tutorial/
+tests/part1/
+
 # Typescript
 typings/
 *.js.map
