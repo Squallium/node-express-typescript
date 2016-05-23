@@ -78,4 +78,3 @@ app.use(function (err, req, res, next) {
     });
 });
 exports.App = app;
-//# sourceMappingURL=app.js.map

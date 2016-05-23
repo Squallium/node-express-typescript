@@ -61,4 +61,3 @@ function isLoggedIn(req, res, next) {
     res.redirect('/');
 }
 module.exports = router;
-//# sourceMappingURL=users.js.map

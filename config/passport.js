@@ -1,7 +1,6 @@
 /**
  * Created by borja on 27/03/16.
  */
-"use strict";
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/user');
 function setupStrategies(passport) {
@@ -104,4 +103,3 @@ function setupStrategies(passport) {
 }
 exports.setupStrategies = setupStrategies;
 ;
-//# sourceMappingURL=passport.js.map

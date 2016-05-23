@@ -1,19 +1,22 @@
 /**
  * Created by borja on 23/5/16.
  */
-"use strict";
 /// <reference path='../typings/main.d.ts' />
-var mongoose = require('mongoose');
-var config = require('../config/config');
-var db;
-describe('User', function () {
-    before(function (done) {
-        db = mongoose.connect(config.db['test']);
-        done();
-    });
-    after(function (done) {
-        mongoose.connection.close();
-        done();
+process.env.NODE_ENV = 'test';
+var chaiAssertions = require('chai');
+var chaiHttp = require('chai-http');
+var mongoose = require("mongoose");
+var server = require('../app').App;
+var should = chaiAssertions.should();
+chaiAssertions.use(chaiHttp);
+describe('Blobs', function () {
+    it('sdf', function (done) {
+        chaiAssertions.request(server)
+            .get('/')
+            .end(function (err, res) {
+            res.should.have.status(200);
+            done();
+        });
     });
 });
 //# sourceMappingURL=test.user.js.map

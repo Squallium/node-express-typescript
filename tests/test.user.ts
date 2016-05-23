@@ -4,20 +4,25 @@
 
 /// <reference path='../typings/main.d.ts' />
 
-import mongoose = require('mongoose');
-import config = require('../config/config')
+process.env.NODE_ENV = 'test';
 
-let db;
+var chaiAssertions = require('chai');
+var chaiHttp = require('chai-http');
+var mongoose = require("mongoose");
 
-describe('User', function () {
+var server = require('../app').App;
 
-    before(function (done) {
-        db = mongoose.connect(config.db['test']);
-        done();
-    });
 
-    after(function (done) {
-        mongoose.connection.close();
-        done();
+var should = chaiAssertions.should();
+chaiAssertions.use(chaiHttp);
+
+describe('Blobs', function() {
+    it('sdf', function(done) {
+        chaiAssertions.request(server)
+            .get('/')
+            .end(function (err, res) {
+                res.should.have.status(200);
+                done();
+            });
     });
 });
