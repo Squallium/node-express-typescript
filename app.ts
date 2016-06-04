@@ -29,7 +29,9 @@ let app = express();
 // the url correspond to the environment we are in
 app.set('dbUrl', config.db[app.settings.env]);
 // we're going to use mongoose to interact with the mongodb
-mongoose.connect(app.get('dbUrl'));
+//if(!mongoose.connection.db){
+    mongoose.connect(app.get('dbUrl'));
+//}
 
 // passport strategies setup
 require('./config/passport').setupStrategies(passport);

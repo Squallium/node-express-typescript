@@ -1,6 +1,7 @@
 /**
  * Created by borja on 22/3/16.
  */
+"use strict";
 /// <reference path='./typings/main.d.ts' />
 // default imports
 var express = require('express');
@@ -22,7 +23,9 @@ var app = express();
 // the url correspond to the environment we are in
 app.set('dbUrl', config.db[app.settings.env]);
 // we're going to use mongoose to interact with the mongodb
+//if(!mongoose.connection.db){
 mongoose.connect(app.get('dbUrl'));
+//}
 // passport strategies setup
 require('./config/passport').setupStrategies(passport);
 // passport setup
@@ -78,3 +81,4 @@ app.use(function (err, req, res, next) {
     });
 });
 exports.App = app;
+//# sourceMappingURL=app.js.map

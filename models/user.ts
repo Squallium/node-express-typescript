@@ -29,4 +29,10 @@ userSchema.methods.validPassword = function(password) {
 };
 
 // create the model for users and expose it to our app
-export = mongoose.model('User', userSchema);
+let model;
+try {
+    model = mongoose.model('User');
+} catch (err) {
+    model = mongoose.model('User', userSchema);
+}
+export = model;

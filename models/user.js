@@ -20,4 +20,12 @@ userSchema.methods.generateHash = function (password) {
 userSchema.methods.validPassword = function (password) {
     return bcrypt.compareSync(password, this.local.password);
 };
-module.exports = mongoose.model('User', userSchema);
+// create the model for users and expose it to our app
+var model;
+try {
+    model = mongoose.model('User');
+}
+catch (err) {
+    model = mongoose.model('User', userSchema);
+}
+module.exports = model;

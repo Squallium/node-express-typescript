@@ -19,6 +19,7 @@
     "node": "registry:dt/node#4.0.0+20160319033040",
     "passport": "registry:dt/passport#0.2.0+20160317120654",
     "serve-favicon": "registry:dt/serve-favicon#0.0.0+20160316155526",
-    "serve-static": "registry:dt/serve-static#0.0.0+20160317120654"
+    "serve-static": "registry:dt/serve-static#0.0.0+20160317120654",
+    "supertest": "registry:dt/supertest#1.1.0+20160317120654"
   }
 }
