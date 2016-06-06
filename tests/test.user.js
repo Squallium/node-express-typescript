@@ -34,7 +34,6 @@ describe('Users request tests', function () {
             .expect(302, done);
     });
     it('responds to a signup and redirect to profile', function testPath(done) {
-        var user = { email: 'test', password: 'marcus' };
         request(server)
             .post('/users/signup')
             .type('form')
@@ -42,6 +41,13 @@ describe('Users request tests', function () {
             .send({ password: 'lol' })
             .expect(302)
             .expect('Location', 'profile')
+            .end(done);
+    });
+    it('responds to a user logout', function testPath(done) {
+        request(server)
+            .get('/users/logout')
+            .expect(302)
+            .expect('Location', '/')
             .end(done);
     });
 });
