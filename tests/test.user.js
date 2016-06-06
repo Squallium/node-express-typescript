@@ -12,6 +12,9 @@ describe('Users request tests', function () {
         server = require('../bin/www');
     });
     after(function () {
+        mongoose.connection.collections['users'].remove(function (err) {
+            console.log('Collection users removed ');
+        });
         mongoose.disconnect();
         server.close();
     });
@@ -25,19 +28,21 @@ describe('Users request tests', function () {
             .get('/users/signup')
             .expect(200, done);
     });
-    it('profile page', function testPath(done) {
+    it('responds to /users/profile without auth', function testPath(done) {
         request(server)
             .get('/users/profile')
             .expect(302, done);
     });
-    it('make a signup', function testPath(done) {
-        var user = { email: 'marcus@marcus.com', password: 'marcus' };
+    it('responds to a signup and redirect to profile', function testPath(done) {
+        var user = { email: 'test', password: 'marcus' };
         request(server)
             .post('/users/signup')
             .type('form')
-            .send({ email: 'tsssj' })
-            .send({ password: 'tobi' })
-            .expect(200, done);
+            .send({ email: 'test@omg' })
+            .send({ password: 'lol' })
+            .expect(302)
+            .expect('Location', 'profile')
+            .end(done);
     });
 });
 //# sourceMappingURL=test.user.js.map

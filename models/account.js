@@ -8,3 +8,4 @@ var accountSchema = mongoose.Schema({
     name: String,
     type: String
 });
+//# sourceMappingURL=account.js.map

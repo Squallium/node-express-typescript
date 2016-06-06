@@ -1,7 +1,6 @@
 /**
  * Created by borja on 24/03/16.
  */
-"use strict";
 /// <reference path='../typings/main.d.ts' />
 var express = require('express');
 var passport = require('passport');

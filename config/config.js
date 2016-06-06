@@ -1,7 +1,6 @@
 /**
  * Created by borja on 26/03/16.
  */
-"use strict";
 /// <reference path='../typings/main.d.ts' />
 var config = {
     db: {
