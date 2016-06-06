@@ -1,7 +1,6 @@
 /**
  * Created by borja on 23/5/16.
  */
-"use strict";
 /// <reference path='../typings/main.d.ts' />
 process.env.NODE_ENV = 'test';
 var mongoose = require('mongoose');
@@ -31,6 +30,7 @@ describe('Users request tests', function () {
     it('responds to /users/profile without auth', function testPath(done) {
         request(server)
             .get('/users/profile')
+            .expect('Location', '/')
             .expect(302, done);
     });
     it('responds to a signup and redirect to profile', function testPath(done) {
@@ -48,6 +48,16 @@ describe('Users request tests', function () {
             .get('/users/logout')
             .expect(302)
             .expect('Location', '/')
+            .end(done);
+    });
+    it('responds to a login and redirect to profile', function testPath(done) {
+        request(server)
+            .post('/users/login')
+            .type('form')
+            .send({ email: 'test@omg' })
+            .send({ password: 'lol' })
+            .expect(302)
+            .expect('Location', 'profile')
             .end(done);
     });
 });

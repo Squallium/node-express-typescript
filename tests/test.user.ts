@@ -34,6 +34,7 @@ describe('Users request tests', function () {
     it('responds to /users/profile without auth', function testPath(done) {
         request(server)
             .get('/users/profile')
+            .expect('Location', '/')
             .expect(302, done);
     });
 
@@ -55,4 +56,16 @@ describe('Users request tests', function () {
             .expect('Location', '/')
             .end(done);
     });
+
+    it('responds to a login and redirect to profile', function testPath(done) {
+        request(server)
+            .post('/users/login')
+            .type('form')
+            .send({ email: 'test@omg' })
+            .send({ password: 'lol' })
+            .expect(302)
+            .expect('Location', 'profile')
+            .end(done);
+    });
+
 });
